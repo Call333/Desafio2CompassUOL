@@ -21,60 +21,32 @@ public class Centro {
     }
 
     public void addRoupa(Roupa i) {
-        estoqueRoupas.add(i);
-        int qi = i.getQuantidade();
-        int h = contabilizarTotalItensRoupa();
-        Roupa n1 = null;
-        if (h > 1000) {
-            for (int j = 0; j < (contabilizarTotalItensRoupa() - 1000); j++) {
-                qi -= 1;
-                n1 = new Roupa(i.getDescricao(), qi,
-                        i.getCentro_distruibuicao_id(), i.getGenero(), i.getTamanho());
-            }
-            estoqueRoupas.remove(i);
-            estoqueRoupas.add(n1);
-            System.out.println("Agora o estoque de roupas do centro de distribuição está cheio.");
+        int qtd = i.getQuantidade();
+        for (int j = 0; j < qtd; j++) { // j representa a quantidade q será add no estoque.
+            estoqueRoupas.add(new Roupa(i.getDescricao(), 1,
+                    i.getCentro_distruibuicao_id(), i.getGenero(), i.getTamanho()));
+            estoqueTotal.add(new Roupa(i.getDescricao(), 1,
+                    i.getCentro_distruibuicao_id(), i.getGenero(), i.getTamanho()));
         }
-        if (n1 != null) {
-            estoqueTotal.add(n1);
-        } else {
-            estoqueTotal.add(i);
+        int limite = 1000; // Limite tem q estar em 100
+        if (estoqueRoupas.size() > limite) {
+            while (estoqueRoupas.size() > limite) {
+                estoqueRoupas.remove(estoqueRoupas.size() - 1);
+                estoqueTotal.remove(estoqueTotal.size() - 1);
+            }
         }
     }
 
-    // public void addAlimento(Alimento i) { /// Alimento, contabilizar itens me retorne 999 + 5 = 1000, tira 4
-    //     estoqueAlimentos.add(i);
-    //     int qi = i.getQuantidade();
-    //     int h = contabilizarTotalItensAlimento();
-    //     Alimento n1 = null;
-    //     if (h > 1000) {
-    //         for (int j = 0; j < (contabilizarTotalItensAlimento() - 1000); j++) {
-    //             qi -= 1;
-    //             n1 = new Alimento(i.getDescricao(), qi,
-    //                     i.getCentro_distruibuicao_id(), i.getUnidade_medida(), i.getValidade());
-    //         }
-    //         estoqueAlimentos.remove(i);
-    //         estoqueAlimentos.add(n1);
-    //         System.out.println("Agora o estoque de alimentos do centro de distribuição está cheio.");
-    //     }
-    //     if (n1 != null) {
-    //         estoqueTotal.add(n1);
-    //     } else {
-    //         estoqueTotal.add(i);
-    //     }
-    // }
-
     public void addAlimento(Alimento i) { /// Alimento, contabilizar itens me retorne 999 + 5 = 1000, tira 4
         int qtd = i.getQuantidade();
-        for (int j = 0; j < qtd; j++) { // j representa a quantidade de arroz q será add no estoque.
-            estoqueAlimentos.add(new Alimento(i.getDescricao(), 1, 
-            i.getCentro_distruibuicao_id(), i.getUnidade_medida(), i.getValidade()));
-            estoqueTotal.add(new Alimento(i.getDescricao(), 1, 
-            i.getCentro_distruibuicao_id(), i.getUnidade_medida(), i.getValidade()));
+        for (int j = 0; j < qtd; j++) { // j representa a quantidade q será add no estoque.
+            estoqueAlimentos.add(new Alimento(i.getDescricao(), 1,
+                    i.getCentro_distruibuicao_id(), i.getUnidade_medida(), i.getValidade()));
+            estoqueTotal.add(new Alimento(i.getDescricao(), 1,
+                    i.getCentro_distruibuicao_id(), i.getUnidade_medida(), i.getValidade()));
         }
-        System.out.println(estoqueAlimentos.size());
-        int limite = 100; // Limite tem q estar em 100
-        if(estoqueAlimentos.size()> limite){ // 10
+        int limite = 1000; // Limite tem q estar em 100
+        if (estoqueAlimentos.size() > limite) {
             while (estoqueAlimentos.size() > limite) {
                 estoqueAlimentos.remove(estoqueAlimentos.size() - 1);
                 estoqueTotal.remove(estoqueTotal.size() - 1);
@@ -83,24 +55,19 @@ public class Centro {
     }
 
     public void addHigiene(ProdutoHigiene i) {
-        estoqueHigiene.add(i);
-        int qi = i.getQuantidade();
-        int h = contabilizarTotalItensHigiene();
-        ProdutoHigiene n1 = null;
-        if (h > 1000) {
-            for (int j = 0; j < (contabilizarTotalItensHigiene() - 1000); j++) {
-                qi -= 1;
-                n1 = new ProdutoHigiene(i.getDescricao(), qi,
-                        i.getCentro_distruibuicao_id(), i.getTipo());
-            }
-            estoqueHigiene.remove(i);
-            estoqueHigiene.add(n1);
-            System.out.println("Agora o estoque de produtos de higiene centro de distribuição está cheio.");
+        int qtd = i.getQuantidade();
+        for (int j = 0; j < qtd; j++) { // j representa a quantidade q será add no estoque.
+            estoqueHigiene.add(new ProdutoHigiene(i.getDescricao(), 1,
+                    i.getCentro_distruibuicao_id(), i.getTipo()));
+            estoqueTotal.add(new ProdutoHigiene(i.getDescricao(), 1,
+                    i.getCentro_distruibuicao_id(), i.getTipo()));
         }
-        if (n1 != null) {
-            estoqueTotal.add(n1);
-        } else {
-            estoqueTotal.add(i);
+        int limite = 1000; // Limite tem q estar em 100
+        if (estoqueHigiene.size() > limite) { // 10
+            while (estoqueHigiene.size() > limite) {
+                estoqueHigiene.remove(estoqueHigiene.size() - 1);
+                estoqueTotal.remove(estoqueTotal.size() - 1);
+            }
         }
     }
 

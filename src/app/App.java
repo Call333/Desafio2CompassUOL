@@ -20,10 +20,10 @@ public class App {
         centro01.addAlimento(l1);
         Roupa i2 = new Roupa("Agasalho", 3, 1, "F", "G");
         centro01.addRoupa(i2);
-        // Roupa i3 = new Roupa("Agasalho", 3, 1, "F", "G");
-        // centro01.addRoupa(i3);
-        // ProdutoHigiene i4 = new ProdutoHigiene("Escova Oral-B", 10, 1, "Escova");
-        // centro01.addHigiene(i4);
+        Roupa i3 = new Roupa("Casaco", 3, 1, "M", "GG");
+        centro01.addRoupa(i3);
+        ProdutoHigiene i4 = new ProdutoHigiene("Escova Oral-B", 10, 1, "Escova");
+        centro01.addHigiene(i4);
 
         int qtdTotal = 0;
         for (ItemEstoque itemEstoque : centro01.getEstoque()) {
@@ -34,6 +34,8 @@ public class App {
         // System.out.println(centro01.getEstoqueAlimentos());
         // centro01.getEstoqueAlimentos().remove(1);
         System.out.println("QtdTotalDeItensDeAlimento = " + centro01.contabilizarTotalItensAlimento());
+        System.out.println("QtdTotalDeItensDeRoupa = " + centro01.contabilizarTotalItensRoupa());
+        System.out.println("QtdTotalDeItensDeHigiene = " + centro01.contabilizarTotalItensHigiene());
         
         System.out.println("QtdTotalDeItens = " + centro01.contabilizarTotalItens());
     }
