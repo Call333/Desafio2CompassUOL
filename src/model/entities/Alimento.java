@@ -28,7 +28,7 @@ public class Alimento extends ItemEstoque {
     public void setValidade(LocalDate validade) {
         this.validade = validade;
     }
-
+    
     public String toString() {
         return "Alimento: [" + getDescricao() + ", "
                 + getUnidade_medida() + ", " + getQuantidade() + ", "

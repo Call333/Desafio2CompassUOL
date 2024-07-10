@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Centro {
+    private Integer id;
     private String nome;
     private String endereco;
     private String cep;
@@ -14,7 +15,8 @@ public class Centro {
     private List<Alimento> estoqueAlimentos = new ArrayList<>();
     private List<ProdutoHigiene> estoqueHigiene = new ArrayList<>();
 
-    public Centro(String nome, String endereco, String cep) {
+    public Centro(Integer id,String nome, String endereco, String cep) {
+        this.id = id;
         this.nome = nome;
         this.endereco = endereco;
         this.cep = cep;
@@ -120,6 +122,14 @@ public class Centro {
 
     public List<ItemEstoque> getEstoque() {
         return estoqueTotal;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
