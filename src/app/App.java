@@ -40,14 +40,14 @@ public class App {
 
             int resp = sc.nextInt();
 
-            if (resp == 1) { // Resp da Linha 31
+            if (resp == 1) { // Resp da Linha 41
                 System.out.println("O que deseja fazer?"
                         + "\n1 - Cadastrar um item"
                         + "\n2 - Consultar os itens no estoque"
                         + "\n3 - Editar um item"
                         + "\n4 - Excluir um item");
                 resp = sc.nextInt();
-
+                // IF de cadastro por CSV ou Terminal.
                 if (resp == 1) {
                     resp = 0;
                     System.out.println(
@@ -192,34 +192,40 @@ public class App {
                         }
                     }
                 }
-
-            }
-            if (resp == 2) { // Resp da Linha 31
-                resp = 0;
-                System.out.println("Quantidade de itens no centro 1");
-                if (centro01.getEstoque().isEmpty()) {
-                    System.out.println("O estoque está vázio");
-                } else {
-                    for (ItemEstoque item : centro01.getEstoque()) {
-                        System.out.println(item);
+                // IF de consulta dos itens por centro.
+                if (resp == 2) { // Resp da Linha 31
+                    resp = 0;
+                    System.out.println("Quantidade de itens no centro 1: ");
+                    if (centro01.getEstoque().isEmpty()) {
+                        System.out.println("O estoque está vázio");
+                    } else {
+                        for (ItemEstoque item : centro01.getEstoque()) {
+                            System.out.println(item);
+                        }
+                    }
+                    System.out.println("Quantidade de itens no centro 2: ");
+                    if (centro02.getEstoque().isEmpty()) {
+                        System.out.println("O estoque está vázio");
+                    } else {
+                        for (ItemEstoque item : centro02.getEstoque()) {
+                            System.out.println(item);
+                        }
+                    }
+                    System.out.println("Quantidade de itens no centro 3");
+                    if (centro03.getEstoque().isEmpty()) {
+                        System.out.println("O estoque está vázio");
+                    } else {
+                        for (ItemEstoque item : centro03.getEstoque()) {
+                            System.out.println(item);
+                        }
                     }
                 }
-                System.out.println("Quantidade de itens no centro 2");
-                if (centro02.getEstoque().isEmpty()) {
-                    System.out.println("O estoque está vázio");
-                } else {
-                    for (ItemEstoque item : centro02.getEstoque()) {
-                        System.out.println(item);
-                    }
+                if(resp == 3){
+                    resp = 0;
                 }
-
-                System.out.println("Quantidade de itens no centro 3");
-                if (centro03.getEstoque().isEmpty()) {
-                    System.out.println("O estoque está vázio");
-                } else {
-                    for (ItemEstoque item : centro03.getEstoque()) {
-                        System.out.println(item);
-                    }
+                if(resp == 4){
+                    resp = 0;
+                    
                 }
             }
 
