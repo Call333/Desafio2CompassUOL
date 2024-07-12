@@ -6,9 +6,9 @@ public class Alimento extends ItemEstoque {
     private String unidade_medida;
     private LocalDate validade;
 
-    public Alimento(String descricao, Integer quantidade, Integer centro_distruibuicao_id,
+    public Alimento(Integer id, String descricao, Integer quantidade, Integer centro_distruibuicao_id,
             String unidade_medida, LocalDate validade) {
-        super(descricao, quantidade, centro_distruibuicao_id);
+        super(id, descricao, quantidade, centro_distruibuicao_id);
         this.unidade_medida = unidade_medida;
         this.validade = validade;
     }

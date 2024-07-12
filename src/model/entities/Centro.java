@@ -25,9 +25,9 @@ public class Centro {
     public void addRoupa(Roupa i) {
         int qtd = i.getQuantidade();
         for (int j = 0; j < qtd; j++) { // j representa a quantidade q será add no estoque.
-            estoqueRoupas.add(new Roupa(i.getDescricao(), 1,
+            estoqueRoupas.add(new Roupa(i.getId(), i.getDescricao(), 1,
                     i.getCentro_distruibuicao_id(), i.getGenero(), i.getTamanho()));
-            estoqueTotal.add(new Roupa(i.getDescricao(), 1,
+            estoqueTotal.add(new Roupa(i.getId(), i.getDescricao(), 1,
                     i.getCentro_distruibuicao_id(), i.getGenero(), i.getTamanho()));
         }
         int limite = 1000; // Limite tem q estar em 100
@@ -42,9 +42,9 @@ public class Centro {
     public void addAlimento(Alimento i) { /// Alimento, contabilizar itens me retorne 999 + 5 = 1000, tira 4
         int qtd = i.getQuantidade();
         for (int j = 0; j < qtd; j++) { // j representa a quantidade q será add no estoque.
-            estoqueAlimentos.add(new Alimento(i.getDescricao(), 1,
+            estoqueAlimentos.add(new Alimento(i.getId(), i.getDescricao(), 1,
                     i.getCentro_distruibuicao_id(), i.getUnidade_medida(), i.getValidade()));
-            estoqueTotal.add(new Alimento(i.getDescricao(), 1,
+            estoqueTotal.add(new Alimento(i.getId(), i.getDescricao(), 1,
                     i.getCentro_distruibuicao_id(), i.getUnidade_medida(), i.getValidade()));
         }
         int limite = 1000; // Limite tem q estar em 100
@@ -59,9 +59,9 @@ public class Centro {
     public void addHigiene(ProdutoHigiene i) {
         int qtd = i.getQuantidade();
         for (int j = 0; j < qtd; j++) { // j representa a quantidade q será add no estoque.
-            estoqueHigiene.add(new ProdutoHigiene(i.getDescricao(), 1,
+            estoqueHigiene.add(new ProdutoHigiene(i.getId(), i.getDescricao(), 1,
                     i.getCentro_distruibuicao_id(), i.getTipo()));
-            estoqueTotal.add(new ProdutoHigiene(i.getDescricao(), 1,
+            estoqueTotal.add(new ProdutoHigiene(i.getId(), i.getDescricao(), 1,
                     i.getCentro_distruibuicao_id(), i.getTipo()));
         }
         int limite = 1000; // Limite tem q estar em 100

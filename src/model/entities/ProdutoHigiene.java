@@ -3,9 +3,9 @@ package model.entities;
 public class ProdutoHigiene extends ItemEstoque {
     private String tipo;
     
-    public ProdutoHigiene(String descricao, Integer quantidade, 
+    public ProdutoHigiene(Integer id, String descricao, Integer quantidade, 
             Integer centro_distruibuicao_id, String tipo) {
-        super(descricao, quantidade, centro_distruibuicao_id);
+        super(id, descricao, quantidade, centro_distruibuicao_id);
         this.tipo = tipo;
     }
 

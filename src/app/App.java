@@ -6,8 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import model.entities.Alimento;
@@ -67,13 +65,14 @@ public class App {
                             while (doacaoCsv != null) {
                                 String[] campos = doacaoCsv.split(",");
                                 String tipoDoItem = campos[0];
-                                String descricao = campos[1];
-                                int quantidade = Integer.parseInt(campos[2]);
-                                int id_centro = Integer.parseInt(campos[3]);
+                                Integer id = Integer.parseInt(campos[1]);
+                                String descricao = campos[2];
+                                int quantidade = Integer.parseInt(campos[3]);
+                                int id_centro = Integer.parseInt(campos[4]);
                                 if (tipoDoItem.equals("Alimento:")) {
-                                    String peso = campos[4];
-                                    LocalDate validade = LocalDate.parse(campos[5], dtf);
-                                    Alimento alm = new Alimento(descricao, quantidade,
+                                    String peso = campos[5];
+                                    LocalDate validade = LocalDate.parse(campos[6], dtf);
+                                    Alimento alm = new Alimento(id, descricao, quantidade,
                                             id_centro, peso, validade);
                                     if (centro01.getId() == id_centro) {
                                         centro01.addAlimento(alm);
@@ -86,9 +85,9 @@ public class App {
                                     }
                                 }
                                 if (tipoDoItem.equals("Roupa:")) {
-                                    String genero = campos[4];
-                                    String tamanho = campos[5];
-                                    Roupa roupa = new Roupa(descricao, quantidade,
+                                    String genero = campos[5];
+                                    String tamanho = campos[6];
+                                    Roupa roupa = new Roupa(id, descricao, quantidade,
                                             id_centro, genero, tamanho);
                                     if (centro01.getId() == id_centro) {
                                         centro01.addRoupa(roupa);
@@ -101,9 +100,9 @@ public class App {
                                     }
                                 }
                                 if (tipoDoItem.equals("Higiene:")) {
-                                    String tipo = campos[4];
-                                    ProdutoHigiene produtoHigiene = new ProdutoHigiene(descricao, quantidade,
-                                            id_centro, tipo);
+                                    String tipo = campos[5];
+                                    ProdutoHigiene produtoHigiene = new ProdutoHigiene(id, descricao,
+                                            quantidade, id_centro, tipo);
                                     if (centro01.getId() == id_centro) {
                                         centro01.addHigiene(produtoHigiene);
                                     }
@@ -142,7 +141,7 @@ public class App {
                             String peso = sc.next();
                             System.out.print("Validade: ");
                             LocalDate validade = LocalDate.parse(sc.next(), dtf);
-                            Alimento alm = new Alimento(descricao, quantidade, id_centro, peso, validade);
+                            Alimento alm = new Alimento(null, descricao, quantidade, id_centro, peso, validade);
                             if (centro01.getId() == id_centro) {
                                 centro01.addAlimento(alm);
                             }
@@ -162,7 +161,7 @@ public class App {
                             System.out.print("Tamanho: ");
                             String tamanho = sc.next();
 
-                            Roupa roupa = new Roupa(descricao, quantidade, id_centro, genero, tamanho);
+                            Roupa roupa = new Roupa(null, descricao, quantidade, id_centro, genero, tamanho);
                             if (centro01.getId() == id_centro) {
                                 centro01.addRoupa(roupa);
                             }
@@ -178,7 +177,8 @@ public class App {
                             resp = 0;
                             System.out.print("Tipo: ");
                             String tipo = sc.nextLine();
-                            ProdutoHigiene produtoHigiene = new ProdutoHigiene(descricao, quantidade, id_centro, tipo);
+                            ProdutoHigiene produtoHigiene = new ProdutoHigiene(null, descricao, quantidade, 
+                                    id_centro, tipo);
                             if (centro01.getId() == id_centro) {
                                 centro01.addHigiene(produtoHigiene);
                             }
@@ -220,12 +220,12 @@ public class App {
                         }
                     }
                 }
-                if(resp == 3){
+                if (resp == 3) {
                     resp = 0;
                 }
-                if(resp == 4){
+                if (resp == 4) {
                     resp = 0;
-                    
+                    System.out.println("Digite o nome do item que ");
                 }
             }
 

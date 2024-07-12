@@ -5,9 +5,9 @@ public class Roupa extends ItemEstoque {
     private String genero;
     private String tamanho;
 
-    public Roupa(String descricao, Integer quantidade, Integer centro_distruibuicao_id,
+    public Roupa(Integer id, String descricao, Integer quantidade, Integer centro_distruibuicao_id,
             String genero, String tamanho) {
-        super(descricao, quantidade, centro_distruibuicao_id);
+        super(id, descricao, quantidade, centro_distruibuicao_id);
         this.genero = genero;
         this.tamanho = tamanho;
     }
