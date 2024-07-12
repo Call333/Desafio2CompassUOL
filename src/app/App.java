@@ -67,7 +67,7 @@ public class App {
                                 String tipoDoItem = campos[0];
                                 Integer id = Integer.parseInt(campos[1]);
                                 String descricao = campos[2];
-                                int quantidade = Integer.parseInt(campos[3]);
+                                Integer quantidade = Integer.parseInt(campos[3]);
                                 int id_centro = Integer.parseInt(campos[4]);
                                 if (tipoDoItem.equals("Alimento:")) {
                                     String peso = campos[5];
@@ -177,7 +177,7 @@ public class App {
                             resp = 0;
                             System.out.print("Tipo: ");
                             String tipo = sc.nextLine();
-                            ProdutoHigiene produtoHigiene = new ProdutoHigiene(null, descricao, quantidade, 
+                            ProdutoHigiene produtoHigiene = new ProdutoHigiene(null, descricao, quantidade,
                                     id_centro, tipo);
                             if (centro01.getId() == id_centro) {
                                 centro01.addHigiene(produtoHigiene);
@@ -225,7 +225,20 @@ public class App {
                 }
                 if (resp == 4) {
                     resp = 0;
-                    System.out.println("Digite o nome do item que ");
+                    System.out.println("De o número do centro ao qual centro você deseja excluir os itens: "
+                            + "\n1 - Centro 01 = " + centro01.getNome()
+                            + "\n2 - Centro 02 = " + centro02.getNome()
+                            + "\n3 - Centro 03 = " + centro03.getNome());
+                    resp = sc.nextInt();
+                    if (resp == 1) {
+                        resp = 0;
+                        System.out.print("Digite o ID do item que deseja excluir: ");
+                        int id_procurado = sc.nextInt();
+                        for (ItemEstoque string : centro01.getEstoque()) {
+                            
+                        }
+                    }
+                    
                 }
             }
 

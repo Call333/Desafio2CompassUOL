@@ -1,5 +1,8 @@
 # Compiled class file
 *.class
+db
+dao
+db.properties
 
 # Log file
 *.log
