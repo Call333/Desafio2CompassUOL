@@ -219,10 +219,95 @@ public class App {
                 }
                 if (resp == 3) {
                     resp = 0;
+                    System.out.println("De o número do centro ao qual centro você deseja --> editar <-- os itens: "
+                            + "\n1 - Centro 01 = " + centro01.getNome()
+                            + "\n2 - Centro 02 = " + centro02.getNome()
+                            + "\n3 - Centro 03 = " + centro03.getNome());
+                    resp = sc.nextInt();
+                    if (resp == 1) {
+                        resp = 0;
+                        System.out.print("Digite o ID do item que deseja editar: ");
+                        int id_procurado = sc.nextInt();
+                        ItemEstoque edit = null;
+                        for (ItemEstoque item : centro01.getEstoque()) {
+                            if (item.getId() == id_procurado) {
+                                edit = item;
+                            }
+                        }
+                        System.out.println(edit.getClass().getSimpleName());
+                        if (edit.getClass().getSimpleName().equals("Alimento")) {
+                            Alimento alimentoEditado = (Alimento) edit;
+                            System.out.println("Qual atributo você deseja editar? "
+                                    + "\n1 - Descricao"
+                                    + "\n2 - Quantidade"
+                                    + "\n3 - Unidade de Medida"
+                                    + "\n4 - Validade");
+                            int opcao = sc.nextInt();
+                            sc.nextLine();
+                            if (opcao == 1) {
+                                String novaDescricao = sc.nextLine();
+                                alimentoEditado.setDescricao(novaDescricao);
+                            }
+                            if (opcao == 2) {
+                                Integer novaQtd = sc.nextInt();
+                                alimentoEditado.setQuantidade(novaQtd);
+                            }
+                            if (opcao == 3) {
+                                alimentoEditado.setUnidade_medida(sc.nextLine());
+                            }
+                            if (opcao == 4) {
+                                alimentoEditado.setValidade(LocalDate.parse(sc.nextLine(), dtf));
+                            }
+                        }
+                        if (edit.getClass().getSimpleName().equals("Roupa")) {
+                            Roupa RoupaEditado = (Roupa) edit;
+                            System.out.println("Qual atributo você deseja editar? "
+                                    + "\n1 - Descricao"
+                                    + "\n2 - Quantidade"
+                                    + "\n3 - Genero"
+                                    + "\n4 - Tamanho");
+                            int opcao = sc.nextInt();
+                            if (opcao == 1) {
+                                String novaDescricao = sc.nextLine();
+                                RoupaEditado.setDescricao(novaDescricao);
+                            }
+                            if (opcao == 2) {
+                                Integer novaQtd = sc.nextInt();
+                                RoupaEditado.setQuantidade(novaQtd);
+                            }
+                            if (opcao == 3) {
+                                String novoGenero = sc.next();
+                                RoupaEditado.setGenero(novoGenero);
+                            }
+                            if (opcao == 4) {
+                                String novoTamanho = sc.nextLine();
+                                RoupaEditado.setTamanho(novoTamanho);
+                            }
+                        }
+                        if (edit.getClass().getSimpleName() == "ProdutoHigiene") {
+                            ProdutoHigiene ProdutoHigieneEditado = (ProdutoHigiene) edit;
+                            System.out.println("Qual atributo você deseja editar? "
+                                    + "\n1 - Descricao"
+                                    + "\n2 - Quantidade"
+                                    + "\n3 - Tipo");
+                            int opcao = sc.nextInt();
+                            if (opcao == 1) {
+                                String novaDescricao = sc.nextLine();
+                                ProdutoHigieneEditado.setDescricao(novaDescricao);
+                            }
+                            if (opcao == 2) {
+                                Integer novaQtd = sc.nextInt();
+                                ProdutoHigieneEditado.setQuantidade(novaQtd);
+                            }
+                            if (opcao == 3) {
+                                ProdutoHigieneEditado.setTipo(sc.nextLine());
+                            }
+                        }
+                    }
                 }
                 if (resp == 4) {
                     resp = 0;
-                    System.out.println("De o número do centro ao qual centro você deseja excluir os itens: "
+                    System.out.println("De o número do centro ao qual centro você deseja --> excluir <-- os itens: "
                             + "\n1 - Centro 01 = " + centro01.getNome()
                             + "\n2 - Centro 02 = " + centro02.getNome()
                             + "\n3 - Centro 03 = " + centro03.getNome());
@@ -233,12 +318,12 @@ public class App {
                         int id_procurado = sc.nextInt();
                         ItemEstoque exclu = null;
                         for (ItemEstoque item : centro01.getEstoque()) {
-                            if(item.getId() == id_procurado){
+                            if (item.getId() == id_procurado) {
                                 exclu = item;
                             }
                         }
                         centro01.getEstoque().remove(exclu);
-                        
+
                     }
                     if (resp == 2) {
                         resp = 0;
@@ -246,7 +331,7 @@ public class App {
                         int id_procurado = sc.nextInt();
                         ItemEstoque exclu = null;
                         for (ItemEstoque item : centro02.getEstoque()) {
-                            if(item.getId() == id_procurado){
+                            if (item.getId() == id_procurado) {
                                 exclu = item;
                             }
                         }
@@ -258,7 +343,7 @@ public class App {
                         int id_procurado = sc.nextInt();
                         ItemEstoque exclu = null;
                         for (ItemEstoque item : centro03.getEstoque()) {
-                            if(item.getId() == id_procurado){
+                            if (item.getId() == id_procurado) {
                                 exclu = item;
                             }
                         }
