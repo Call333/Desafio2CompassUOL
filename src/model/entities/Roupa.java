@@ -29,8 +29,8 @@ public class Roupa extends ItemEstoque {
     }
 
     public String toString() {
-        return "Roupa: [" + getDescricao() + ", "
-                + getTamanho() + ", " + getGenero() + ", " + getQuantidade() + ", "
-                + getCentro_distruibuicao_id() + "]";
+        return "Roupa: [ Id:" + getId() + ", Desc.: " +  getDescricao() + ", Tamanho: "
+                + getTamanho() + ", Genero: " + getGenero() + ", Qtd: " + getQuantidade() + 
+                ", Id_centro: " + getCentro_distruibuicao_id() + "]";
     }
 }

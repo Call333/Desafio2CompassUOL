@@ -34,12 +34,21 @@ public class Centro {
                         i.getCentro_distruibuicao_id(), i.getGenero(), i.getTamanho());
             }
             estoqueRoupas.remove(i);
+            for (int j = estoqueTotal.size(); j < (estoqueTotal.size() + 1); j++) {
+                n1.setId(j);
+            }
             estoqueRoupas.add(n1);
             System.out.println("Agora o estoque de roupas do centro de distribuição está cheio.");
         }
         if (n1 != null) {
+            for (int j = estoqueTotal.size(); j < (estoqueTotal.size() + 2); j++) {
+                n1.setId(j);
+            }
             estoqueTotal.add(n1);
         } else {
+            for (int j = estoqueTotal.size(); j < (estoqueTotal.size() + 2); j++) {
+                i.setId(j);
+            }
             estoqueTotal.add(i);
         }
     }
@@ -60,8 +69,14 @@ public class Centro {
             System.out.println("Agora o estoque de alimentos do centro de distribuição está cheio.");
         }
         if (n1 != null) {
+            for (int j = estoqueTotal.size(); j < (estoqueTotal.size() + 2); j++) {
+                n1.setId(j);
+            }
             estoqueTotal.add(n1);
         } else {
+            for (int j = estoqueTotal.size(); j < (estoqueTotal.size() + 2); j++) {
+                i.setId(j);
+            }
             estoqueTotal.add(i);
         }
     }
@@ -82,18 +97,24 @@ public class Centro {
             System.out.println("Agora o estoque de produtos de higiene centro de distribuição está cheio.");
         }
         if (n1 != null) {
+            for (int j = estoqueTotal.size(); j < (estoqueTotal.size() + 2); j++) {
+                n1.setId(j);
+            }
             estoqueTotal.add(n1);
         } else {
+            for (int j = estoqueTotal.size(); j < (estoqueTotal.size() + 2); j++) {
+                i.setId(j);
+            }
             estoqueTotal.add(i);
         }
     }
 
-    public void removeHigiene(Roupa i) {
+    public void removeRoupa(Roupa i) {
         estoqueRoupas.remove(i);
         estoqueTotal.remove(i);
     }
 
-    public void removeHigiene(Alimento i) {
+    public void removeAlimento(Alimento i) {
         estoqueAlimentos.remove(i);
         estoqueTotal.remove(i);
     }

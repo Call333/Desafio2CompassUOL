@@ -65,7 +65,7 @@ public class App {
                             while (doacaoCsv != null) {
                                 String[] campos = doacaoCsv.split(",");
                                 String tipoDoItem = campos[0];
-                                Integer id = Integer.parseInt(campos[1]);
+                                Integer id = null; // Integer.parseInt(campos[1]);
                                 String descricao = campos[2];
                                 Integer quantidade = Integer.parseInt(campos[3]);
                                 int id_centro = Integer.parseInt(campos[4]);
@@ -151,7 +151,6 @@ public class App {
                             if (centro03.getId() == id_centro) {
                                 centro03.addAlimento(alm);
                             }
-                            System.out.println("Saiu do IF de alimentos");
                         }
 
                         if (resp == 2) {
@@ -171,7 +170,6 @@ public class App {
                             if (centro03.getId() == id_centro) {
                                 centro03.addRoupa(roupa);
                             }
-                            System.out.println("Saiu do IF de roupas");
                         }
                         if (resp == 3) {
                             resp = 0;
@@ -188,7 +186,6 @@ public class App {
                             if (centro03.getId() == id_centro) {
                                 centro03.addHigiene(produtoHigiene);
                             }
-                            System.out.println("Saiu do if de higiene");
                         }
                     }
                 }
@@ -234,11 +231,39 @@ public class App {
                         resp = 0;
                         System.out.print("Digite o ID do item que deseja excluir: ");
                         int id_procurado = sc.nextInt();
-                        for (ItemEstoque string : centro01.getEstoque()) {
-                            
+                        ItemEstoque exclu = null;
+                        for (ItemEstoque item : centro01.getEstoque()) {
+                            if(item.getId() == id_procurado){
+                                exclu = item;
+                            }
                         }
+                        centro01.getEstoque().remove(exclu);
+                        
                     }
-                    
+                    if (resp == 2) {
+                        resp = 0;
+                        System.out.print("Digite o ID do item que deseja excluir: ");
+                        int id_procurado = sc.nextInt();
+                        ItemEstoque exclu = null;
+                        for (ItemEstoque item : centro02.getEstoque()) {
+                            if(item.getId() == id_procurado){
+                                exclu = item;
+                            }
+                        }
+                        centro02.getEstoque().remove(exclu);
+                    }
+                    if (resp == 3) {
+                        resp = 0;
+                        System.out.print("Digite o ID do item que deseja excluir: ");
+                        int id_procurado = sc.nextInt();
+                        ItemEstoque exclu = null;
+                        for (ItemEstoque item : centro03.getEstoque()) {
+                            if(item.getId() == id_procurado){
+                                exclu = item;
+                            }
+                        }
+                        centro03.getEstoque().remove(exclu);
+                    }
                 }
             }
 

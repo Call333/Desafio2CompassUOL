@@ -30,8 +30,8 @@ public class Alimento extends ItemEstoque {
     }
     
     public String toString() {
-        return "Alimento: [" + getDescricao() + ", "
-                + getUnidade_medida() + ", " + getQuantidade() + ", "
-                + getValidade() + "," + getCentro_distruibuicao_id() + "]";
+        return "Alimento: [ Id: "+ getId() + ", Desc.: " + getDescricao() + ", Medida: "
+                + getUnidade_medida() + ", Qtd: " + getQuantidade() + ", Validade:"
+                + getValidade() + ", Id_centro: " + getCentro_distruibuicao_id() + "]";
     }
 }

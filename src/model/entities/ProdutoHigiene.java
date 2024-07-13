@@ -18,8 +18,8 @@ public class ProdutoHigiene extends ItemEstoque {
     }
     
     public String toString() {
-        return "Produto de Higiene: [" + getDescricao() + ", "
-                + getTipo() + ", " + getQuantidade() + ", "
+        return "Produto de Higiene: [ Id: " + getId() + ", Desc.: " + getDescricao() + ", Tipo: "
+                + getTipo() + ", Qtd: " + getQuantidade() + ", Id_centro: "
                 + getCentro_distruibuicao_id() + "]";
     }
 }
